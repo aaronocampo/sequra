@@ -42,40 +42,6 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
 
 Barba.Pjax.start();
 
-(function($) {
-	"use strict";
-
-	const progressPath = $('.progress-wrap path')[0];
-	const pathLength = progressPath.getTotalLength();
-
-	progressPath.style.transition = 'none';
-	progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-	progressPath.style.strokeDashoffset = pathLength;
-	progressPath.getBoundingClientRect();
-	progressPath.style.transition = 'stroke-dashoffset 10ms linear';
-
-	const updateProgress = () => {
-		const scroll = $(window).scrollTop();
-		const height = $(document).height() - $(window).height();
-		const progress = pathLength - (scroll * pathLength / height);
-		progressPath.style.strokeDashoffset = progress;
-		
-		if (scroll > 50) {
-			$('.progress-wrap').addClass('active-progress');
-		} else {
-			$('.progress-wrap').removeClass('active-progress');
-		}
-	};
-
-	$(window).on('scroll', updateProgress);
-	$('.progress-wrap').on('click', function(event) {
-		event.preventDefault();
-		$('html, body').animate({scrollTop: 0}, 550);
-		return false;
-	});
-})(jQuery);
-
-
 function setCurrentGroup() {
   var url = window.location.href;
   var links = document.querySelectorAll('.is--current-group');
