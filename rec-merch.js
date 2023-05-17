@@ -1,4 +1,4 @@
-  var FadeTransition = Barba.BaseTransition.extend({
+/*  var FadeTransition = Barba.BaseTransition.extend({
   start: function() {
     Promise
       .all([this.newContainerLoading, this.fadeOut()])
@@ -67,3 +67,18 @@ function setCurrentGroup() {
 }
 
 setCurrentGroup();
+*/
+
+var url = window.location.href;
+if (url.indexOf("recursos") !== -1) {
+  document.getElementById("link-recursos").classList.add("is--current-group");
+}
+if (url.indexOf("integracion-visual") !== -1) {
+  document.getElementById("link-integracion").classList.add("is--current-group");
+}
+if (url.indexOf("comunicacion") !== -1) {
+  document.getElementById("link-comunicacion").classList.add("is--current-group");
+}
+if (url.indexOf("tutorial") !== -1) {
+  document.getElementById("link-tutorial").classList.add("is--current-group");
+}
