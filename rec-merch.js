@@ -24,6 +24,7 @@ function setCurrentGroup() {
 
 setCurrentGroup();
 
+
 /*  var FadeTransition = Barba.BaseTransition.extend({
   start: function() {
     Promise
